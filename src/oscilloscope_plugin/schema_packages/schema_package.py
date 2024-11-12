@@ -3,10 +3,7 @@ from typing import (
 )
 
 if TYPE_CHECKING:
-    from nomad.datamodel.datamodel import (
-        EntryArchive,
-        EntryData
-    )
+
     from structlog.stdlib import (
         BoundLogger,
     )
@@ -16,7 +13,10 @@ from nomad.datamodel.data import Schema
 from nomad.datamodel.metainfo.annotations import ELNAnnotation, ELNComponentEnum
 from nomad.metainfo import Quantity, SchemaPackage, SubSection
 from nomad.datamodel.metainfo.basesections import Instrument as Nomad_Instrument, InstrumentReference
-
+from nomad.datamodel.datamodel import (
+        EntryArchive,
+        EntryData
+    )
 configuration = config.get_plugin_entry_point(
     'oscilloscope_plugin.schema_packages:schema_package_entry_point'
 )
@@ -24,7 +24,7 @@ configuration = config.get_plugin_entry_point(
 m_package = SchemaPackage()
 
 
-class Oscilloscope(Nomad_Instrument, EntryData, EntryArchive):
+class Oscilloscope(Nomad_Instrument,EntryArchive,EntryData):
     name = Quantity(
         type=str,
         description = ""
