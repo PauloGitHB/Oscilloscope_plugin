@@ -1,5 +1,6 @@
 from nomad.config.models.plugins import ParserEntryPoint
 from pydantic import Field
+import re
 
 
 class NewParserEntryPoint(ParserEntryPoint):
@@ -14,4 +15,5 @@ class NewParserEntryPoint(ParserEntryPoint):
 parser_entry_point = NewParserEntryPoint(
     name='NewParser',
     description='New parser entry point configuration.',
+    mainfile_name_re="^oscilloscope.*\\.txt$",
 )
