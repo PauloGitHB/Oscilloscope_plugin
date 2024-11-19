@@ -61,8 +61,5 @@ class Instrument(EntryArchive,EntryData):
     def normalize(self, archive: 'EntryArchive', logger: 'BoundLogger') -> None:
         super().normalize(archive, logger)
 
-        logger.info('NewSchema.normalize', parameter=configuration.parameter)
-        self.message = f'Hello {self.name}!'
-
 
 m_package.__init_metainfo__()
