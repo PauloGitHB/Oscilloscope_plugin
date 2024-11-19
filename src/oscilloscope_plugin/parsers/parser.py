@@ -47,9 +47,9 @@ class OscilloscopeParser(MatchingParser):
         oscillo = Oscilloscope()
 
         oscillo.name = lines[0].strip()
-        oscillo.Nchannel = int(re.search(r'\d+', lines[2]).group())
-        oscillo.bandwidth = float(re.search(r'\d+', lines[3]).group())
-        oscillo.Npts = int(re.search(r'[\d.]+', lines[4]).group())
+        oscillo.Nchannel = int(re.search(r'\d+', lines[1]).group())
+        oscillo.bandwidth = float(re.search(r'\d+', lines[2]).group())
+        oscillo.Npts = int(re.search(r'[\d.]+', lines[3]).group())
 
         instrument.instrument = oscillo
 
